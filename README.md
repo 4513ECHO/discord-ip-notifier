@@ -7,6 +7,10 @@ systemdを使って1時間ごとにRPiのグローバルIPアドレスをdiscord
 ### 準備
 
 ```shell
+IP_NOTIFIER_WEBHOOK_URL=https://discord.com/api/webhook/1234567890/hogehoge
+```
+
+```shell
 sudo systemctl link /home/hibiki/Develops/discord-ip-notifier/notifier.service
 sudo systemctl link /home/hibiki/Develops/discord-ip-notifier/notifier.timer
 sudo systemctl enable /home/hibiki/Develops/discord-ip-notifier/notifier.service

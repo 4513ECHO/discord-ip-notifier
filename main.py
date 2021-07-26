@@ -2,7 +2,7 @@ from urllib import request
 import json
 import subprocess
 
-webhook_url = os.getenv('WEBHOOK_URL')
+webhook_url = os.getenv('IP_NOTIFIR_WEBHOOK_URL')
 
 command = 'curl global.me'
 
@@ -17,4 +17,5 @@ main_content = json.dumps({
 
 headers = {'Content-Type': 'application/json'}
 
-req = request.Request(webhook_url, data=main_conten, headers=headers,  method='POST')
+if not webhook_url:
+    req = request.Request(webhook_url, data=main_conten, headers=headers,  method='POST')
