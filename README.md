@@ -13,5 +13,5 @@ https://discord.com/api/webhooks/1234567890/hogehoge
 `crontab`に以下の設定を書く
 
 ```crontab
-* */1 * * * cd /path/to/discord-ip-notifier; ./main.py
+0 * * * * cd /path/to/discord-ip-notifier; ./main.py
 ```
