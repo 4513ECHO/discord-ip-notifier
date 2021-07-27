@@ -1,9 +1,0 @@
-[Unit]
-Description=run IP notifier on doscord for Python
-
-[Service]
-Type=simple
-ExecStart=/usr/bin/python3 ~/Develops/discord-ip-notifier/main.py
-
-[Install]
-WantedBy=multi-user.target

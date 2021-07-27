@@ -1,25 +1,17 @@
 # discord-ip-notifier
 
-systemdを使って1時間ごとにRPiのグローバルIPアドレスをdiscordに送信するプログラム
+cronを使って1時間ごとにRPiのグローバルIPアドレスをdiscordに送信するプログラム
 
 ## Usage
 
-### 準備
+`env.txt`にwebhookのURLを書く
 
-```shell
-IP_NOTIFIER_WEBHOOK_URL=https://discord.com/api/webhook/1234567890/hogehoge
+```:env.txt
+https://discord.com/api/webhooks/1234567890/hogehoge
 ```
 
-```shell
-sudo systemctl link /home/hibiki/Develops/discord-ip-notifier/notifier.service
-sudo systemctl link /home/hibiki/Develops/discord-ip-notifier/notifier.timer
-sudo systemctl enable /home/hibiki/Develops/discord-ip-notifier/notifier.service
-sudo systemctl enable /home/hibiki/Develops/discord-ip-notifier/notifier.timer
-```
+`crontab`に以下の設定を書く
 
-### 起動/停止
-
-```shell
-sudo systemctl start notifier
-sudo systemctl stop notifer
+```crontab
+* */1 * * * cd /path/to/discord-ip-notifier; ./main.py
 ```
