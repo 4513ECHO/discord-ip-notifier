@@ -1,17 +1,18 @@
 # discord-ip-notifier
 
-cronを使って1時間ごとにRPiのグローバルIPアドレスをdiscordに送信するプログラム
+docker + cronを使って1時間ごとにRPiのグローバルIPアドレスをdiscordに送信するプログラム
 
 ## Usage
 
-`env.txt`にwebhookのURLを書く
+`.env`(`main.py`と同階層)にwebhookのURLを書く
 
-```:env.txt
+```.env
 https://discord.com/api/webhooks/1234567890/hogehoge
 ```
 
-`crontab`に以下の設定を書く
+イメージをbuildして起動
 
-```crontab
-0 * * * * cd /path/to/discord-ip-notifier; ./main.py
+```shell
+docker build . -t "$(basename $PWD)"
+docker run -itd --rm --name "$(basename $PWD)" "$(basename $PWD)"
 ```
