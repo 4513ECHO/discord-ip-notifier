@@ -1,6 +1,6 @@
-import urllib
 import json
 import os
+import urllib.request
 
 with open(os.path.dirname(__file__) + "/.env") as f:
     webhook_url = f.read()
